@@ -36,7 +36,6 @@ const BlogModal = (props: blogModalProps) => {
       data: {
         blog: inputDatas.blogDescription,
         title: inputDatas.blogTitle,
-        userId: 2,
       },
     })
       .then((res) => {

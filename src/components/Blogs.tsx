@@ -30,6 +30,7 @@ type UserArray = {
 
 const Blogs = (props: blogsDataProps) => {
   const { blogs } = props;
+  console.log("blogs", blogs)
   return (
     <>
       {blogs &&

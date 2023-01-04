@@ -8,41 +8,37 @@ import Footer from "../components/Footer";
 import ButtonModel from "../subcomponents/button";
 // import { getblogModal } from "../apis/apis";
 
-const Home = (props: {blogHeader: any}) => {
-
-  const blogHeder = props.blogHeader[0].fields
+const Home = (props: { blogHeader: any }) => {
+  const blogHeder = props.blogHeader[0].fields;
 
   const [blogData, setBlogData] = useState([]);
   const [showBlogModal, setShowBlogModal] = useState(false);
   const [blogPageForm, setBlogPageForm] = useState([]);
-  const [ blogModal, setBlogModal] = useState([])
+  const [blogModal, setBlogModal] = useState([]);
 
   const fetchBlogPageData = async () => {
-
-    await axios.get('http://localhost:8000/blogPage').then(res=> {
-        setBlogPageForm(res.data?.includes.Entry)
-
-    })
+    await axios.get("http://localhost:8000/blogPage").then((res) => {
+      setBlogPageForm(res.data?.includes.Entry);
+    });
   };
 
   const getBlogs = () => {
-    axios.get('http://localhost:8000/blog').then(res=> {
-        setBlogData(res.data)
-    })
-  }
+    axios.get("http://localhost:8000/blog").then((res) => {
+      setBlogData(res.data);
+    });
+  };
 
   const getblogModal = () => {
-    axios.get('http://localhost:8000/blogModal').then(res=> {
-        console.log("blogModal data", res)
-        setBlogModal(res.data?.includes.Entry)
-    })
-  }
-
+    axios.get("http://localhost:8000/blogModal").then((res) => {
+      console.log("blogModal data", res);
+      setBlogModal(res.data?.includes.Entry);
+    });
+  };
 
   useEffect(() => {
     fetchBlogPageData();
-    getBlogs()
-    getblogModal()
+    getBlogs();
+    getblogModal();
   }, []);
 
   return (
@@ -79,14 +75,21 @@ const Home = (props: {blogHeader: any}) => {
                         />
                       )}
                     </div>
-                    <Blogs blogs={blogData} />
                   </div>
                 </div>
-                {each["fields"]["friendlyName"] === "footer" && (
-                  <Footer blogFooter={each["fields"]} />
-                )}
               </>
             );
+          })}
+        <div style={{ marginLeft: 20 }}>
+          <Blogs blogs={blogData} />
+        </div>
+
+        {blogPageForm &&
+          blogPageForm[0] &&
+          blogPageForm.map((each, index) => {
+            if (each["fields"]["friendlyName"] === "footer") {
+              return <Footer blogFooter={each["fields"]} />;
+            }
           })}
       </div>
       <BlogModal
@@ -101,12 +104,14 @@ const Home = (props: {blogHeader: any}) => {
 export default Home;
 
 export const getBlogHeader = async () => {
-  const result = await axios.get('http://localhost:8000/blogHeader').then(res=> {
-    return res.data
-        // setBlogData(res.data)
-    })
-    return result.items
-}
+  const result = await axios
+    .get("http://localhost:8000/blogHeader")
+    .then((res) => {
+      return res.data;
+      // setBlogData(res.data)
+    });
+  return result.items;
+};
 
 export const getStaticProps: () => Promise<{
   props: {
