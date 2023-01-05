@@ -24,7 +24,6 @@ const BlogModal = (props: blogModalProps) => {
   const [blogModalData, setBlogModalData] = useState([]);
 
   const postBlog =  async () => {
-    
    const token = localStorage.getItem("access_token")
 
     await Axios({
@@ -75,7 +74,7 @@ const BlogModal = (props: blogModalProps) => {
         }}
       >
         {props.blogdata[0] &&
-          props.blogdata.map((each: any, index) => {
+          props.blogdata.map((each: any, index: number) => {
             if (each["fields"]["friendlyName"] === "blogModalHeader") {
               return (
                 <ModalHeader>{each["fields"]["blogModalHeader"]}</ModalHeader>
@@ -129,6 +128,7 @@ const BlogModal = (props: blogModalProps) => {
   );
 };
 export default BlogModal;
+
 function indexOf(): any {
   throw new Error("Function not implemented.");
 }

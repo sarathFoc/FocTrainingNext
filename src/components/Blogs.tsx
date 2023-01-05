@@ -30,7 +30,6 @@ type UserArray = {
 
 const Blogs = (props: blogsDataProps) => {
   const { blogs } = props;
-  console.log("blogs", blogs)
   return (
     <>
       {blogs &&
@@ -46,7 +45,7 @@ const Blogs = (props: blogsDataProps) => {
                   lineHeight: 2,
                 }}
               >
-                <span style={{ fontSize: 20 }}>{each.title}</span>
+                <span style={{ fontSize: 20, fontWeight: 500 }}>{each.title}</span>
                 <span>{each.user?.name}</span>
               </div>
               <p>{each.blog}</p>
@@ -55,12 +54,6 @@ const Blogs = (props: blogsDataProps) => {
           );
         })}
     </>
-
-    // <>
-    // {console.log('blogdata', props)}
-
-    // <h1>ohj</h1>
-    // </>
   );
 };
 

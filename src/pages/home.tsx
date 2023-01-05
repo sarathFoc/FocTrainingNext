@@ -57,7 +57,7 @@ const Home = (props: { blogHeader: any }) => {
                     paddingLeft: 20,
                   }}
                 >
-                  <div style={{ width: "100vw" }}>
+                  {/* <div style={{ width: "100vw" }}> */}
                     <div
                       style={{
                         display: "flex",
@@ -75,7 +75,7 @@ const Home = (props: { blogHeader: any }) => {
                         />
                       )}
                     </div>
-                  </div>
+                  {/* </div> */}
                 </div>
               </>
             );
