@@ -9,6 +9,7 @@ import ButtonModel from "../subcomponents/button";
 // import { getblogModal } from "../apis/apis";
 
 const Home = (props: { blogHeader: any }) => {
+  console.log("props", props.blogHeader)
   const blogHeder = props.blogHeader[0].fields;
 
   const [blogData, setBlogData] = useState([]);
@@ -43,8 +44,8 @@ const Home = (props: { blogHeader: any }) => {
 
   return (
     <>
-      <NavigationBar blogHeader={blogHeder} />
-      <div>
+      <NavigationBar   blogHeader={blogHeder} />
+      <div data-testid='sign-in-head'>
         {blogPageForm &&
           blogPageForm[0] &&
           blogPageForm.map((each, index) => {

@@ -4,10 +4,10 @@ import { Modal, ModalHeader, ModalBody, ModalFooter, Input } from "reactstrap";
 import Button from "../subcomponents/button";
 import TextInputWithLabel from "../subcomponents/textInputWithLabel";
 
-const baseUrl = 'http://localhost:8000'
-const Axios = axios.create({
-  baseURL: baseUrl,
-});
+// const baseUrl = 'http://localhost:8000'
+// const Axios = axios.create({
+//   baseURL: baseUrl,
+// });
 
 type blogModalProps = {
   blogdata: any;
@@ -22,6 +22,11 @@ const BlogModal = (props: blogModalProps) => {
   const [openModal, setOpenModal] = useState(false);
   const [inputDatas, setInputDatas] = useState({});
   const [blogModalData, setBlogModalData] = useState([]);
+
+  const baseUrl = "http://localhost:8000";
+  const Axios = axios.create({
+    baseURL: baseUrl,
+  });
 
   const postBlog =  async () => {
    const token = localStorage.getItem("access_token")

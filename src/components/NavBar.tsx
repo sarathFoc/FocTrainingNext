@@ -9,6 +9,7 @@ interface blogHeader  {
 // }
 
 const NavigationBar = (props: blogHeader) => {
+  console.log("NavigationBarNavigationBar", props)
   const { blogHeader } = props
   return (
     <div style={{ backgroundColor: "#cf0217" }}>
