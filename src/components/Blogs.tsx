@@ -36,7 +36,7 @@ const Blogs = (props: blogsDataProps) => {
         blogs[0] &&
         blogs.map((each, index) => {
           return (
-            <div key={index} style={{ paddingRight: 30}}>
+            <div data-testid='mainDiv' key={index} style={{ paddingRight: 30}}>
               <div
                 style={{
                   display: "flex",
