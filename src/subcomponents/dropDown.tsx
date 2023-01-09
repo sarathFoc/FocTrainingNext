@@ -18,8 +18,8 @@ import {
   } from "reactstrap";
   
   type DropDownProps = {
-    roles: {},
-    handleRoles : (e: React.ChangeEvent<HTMLInputElement>) => void
+    roles?: {},
+    handleRoles? : (e: React.ChangeEvent<HTMLInputElement>) => void
   
   }
   
@@ -34,7 +34,7 @@ import {
     const toggle = () => setDropdownOpen((prevState) => !prevState);
     console.log("roles", roles) 
     return (
-      <Dropdown isOpen={dropdownOpen} toggle={toggle} direction="down"  style={{marginBottom: 10}}>
+      <Dropdown data-testid='dropDown' isOpen={dropdownOpen} toggle={toggle} direction="down"  style={{marginBottom: 10}}>
         <DropdownToggle caret color="success" outline>{selectedRole ? selectedRole: "Account Type"}</DropdownToggle>
         <DropdownMenu>
           {roles &&

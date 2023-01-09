@@ -4,11 +4,6 @@ import { Modal, ModalHeader, ModalBody, ModalFooter, Input } from "reactstrap";
 import Button from "../subcomponents/button";
 import TextInputWithLabel from "../subcomponents/textInputWithLabel";
 
-// const baseUrl = 'http://localhost:8000'
-// const Axios = axios.create({
-//   baseURL: baseUrl,
-// });
-
 type blogModalProps = {
   blogdata: any;
   showBlogModal: boolean;
@@ -17,6 +12,7 @@ type blogModalProps = {
 };
 
 const BlogModal = (props: blogModalProps) => {
+  console.log("blogModalPropsprops", props)
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [openModal, setOpenModal] = useState(false);
@@ -68,8 +64,9 @@ const BlogModal = (props: blogModalProps) => {
     }
   };
   return (
-    <div style={{ backgroundColor: "black" }}>
+    <div data-testid='mainDiv' style={{ backgroundColor: "black" }}>
       <Modal
+        
         isOpen={props.showBlogModal}
         style={{
           marginTop: 100,

@@ -45,13 +45,15 @@ const Home = (props: { blogHeader: any }) => {
   return (
     <>
       <NavigationBar   blogHeader={blogHeder} />
-      <div data-testid='sign-in-head'>
+      <div data-testid='homeMapParentnode'>
         {blogPageForm &&
           blogPageForm[0] &&
           blogPageForm.map((each, index) => {
+            console.log("each",each)
             return (
               <>
                 <div
+                  data-testid={each["fields"]["friendlyName"]}
                   style={{
                     display: "flex",
                     justifyContent: "space-between",
@@ -60,6 +62,7 @@ const Home = (props: { blogHeader: any }) => {
                 >
                   {/* <div style={{ width: "100vw" }}> */}
                     <div
+                      data-testid='tertiary-div'
                       style={{
                         display: "flex",
                         alignItems: "center",
@@ -81,7 +84,7 @@ const Home = (props: { blogHeader: any }) => {
               </>
             );
           })}
-        <div style={{ marginLeft: 20 }}>
+        <div  data-testid='blogsDiv' style={{ marginLeft: 20 }}>
           <Blogs blogs={blogData} />
         </div>
 

@@ -62,7 +62,7 @@ const LogIn = (props: any) => {
   }, []);
 
   return (
-    <Container fluid style={{ width: "100%", marginLeft: "10%" }}>
+    <Container data-testid='container' fluid style={{ width: "100%", marginLeft: "10%" }}>
       <h2
         style={{
           marginTop: "25vh",

@@ -12,7 +12,7 @@ const NavigationBar = (props: blogHeader) => {
   console.log("NavigationBarNavigationBar", props)
   const { blogHeader } = props
   return (
-    <div style={{ backgroundColor: "#cf0217" }}>
+    <div data-testid='navbarparentNode' style={{ backgroundColor: "#cf0217" }}>
       <Navbar>
         <NavbarBrand to='/'>
           <h1 style={{ color: "white" }}>{blogHeader?.['blogHeaderText']}</h1>

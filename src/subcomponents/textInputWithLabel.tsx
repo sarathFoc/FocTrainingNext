@@ -24,6 +24,7 @@ const TextInputWithLabel: React.FC<LogInProps> = (props: LogInProps) => {
 
   return( 
   <Input
+    data-testid='textInput'
     id={(each && each["sys"]) ? each["sys"]["id"] : each["name"]}  
     type={each["fields"]? each["fields"]["type"] : each["type"]}
     name={each["fields"]? each["fields"]["name"]: each["name"] }

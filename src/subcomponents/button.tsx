@@ -12,6 +12,7 @@ const ButtonModel = (props: any) => {
     const { handleButtonAction, color, text } = props
     return (
         <Button
+        data-testid="button"
             outline
             color={color}
             onClick={() => handleButtonAction()}
