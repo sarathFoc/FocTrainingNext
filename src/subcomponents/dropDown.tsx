@@ -32,7 +32,6 @@ import {
     const [dropdownOpen, setDropdownOpen] = useState(false);
   
     const toggle = () => setDropdownOpen((prevState) => !prevState);
-    console.log("roles", roles) 
     return (
       <Dropdown data-testid='dropDown' isOpen={dropdownOpen} toggle={toggle} direction="down"  style={{marginBottom: 10}}>
         <DropdownToggle caret color="success" outline>{selectedRole ? selectedRole: "Account Type"}</DropdownToggle>
@@ -41,6 +40,7 @@ import {
             roles[0] &&
             roles.map((each: string, index: Key) => {
               return <DropdownItem  
+              data-testid='dropDownItem'
               key={index} 
               onClick={() => {
                 handleRoles(each) 
